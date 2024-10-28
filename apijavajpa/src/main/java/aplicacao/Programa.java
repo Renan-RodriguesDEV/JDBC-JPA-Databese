@@ -9,12 +9,19 @@ import dominio.Pessoa;
 
 public class Programa {
     public static void main(String[] args) {
-
         Pessoa pessoa = new Pessoa("Renan", 20, "123456789");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
         EntityManager em = emf.createEntityManager();
-        inserePessoa(em, pessoa);
-        buscarPessoa(em, 2);
+        try {
+            inserePessoa(em, pessoa);
+            buscarPessoa(em, 2);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+            emf.close();
+        }
 
     }
 
@@ -38,5 +45,16 @@ public class Programa {
             return false;
         }
 
+    }
+
+    static boolean deletePessoa(EntityManager em, Pessoa pessoa) {
+        try {
+            // deleta a pessoa
+            em.remove(pessoa);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Erro ao deletar: " + pessoa.getNome() + "\n" + e.getMessage());
+            return false;
+        }
     }
 }
