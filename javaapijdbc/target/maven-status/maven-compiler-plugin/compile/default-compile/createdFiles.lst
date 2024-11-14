@@ -1,0 +1,7 @@
+com\javaapijdbc\repositories\LojaPreparet.class
+com\javaapijdbc\models\App.class
+com\javaapijdbc\SelectJava.class
+com\javaapijdbc\InserePreparet.class
+com\javaapijdbc\InsereStatement.class
+com\javaapijdbc\repositories\LojaMarcos.class
+com\javaapijdbc\repositories\InsertMarcos.class
