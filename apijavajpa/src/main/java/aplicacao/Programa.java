@@ -14,7 +14,7 @@ public class Programa {
         EntityManager em = emf.createEntityManager();
         try {
             inserePessoa(em, pessoa);
-            buscarPessoa(em, 2);
+            buscarPessoa(em, 1);
 
         } catch (Exception e) {
             e.printStackTrace();
